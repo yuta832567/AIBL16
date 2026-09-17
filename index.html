@@ -1,0 +1,1388 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="東邦家具株式会社 池田禎治様専用のAI伴走ダッシュボード。ChatGPT研修・フォローアップMTG・学習記録を継続して蓄積していく伴走記録ページです。">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0f1e3c">
+<title>池田 禎治様 — AI伴走ダッシュボード | AIBL</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;600&family=DM+Serif+Display:ital@0;1&family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0f1e3c;
+  --navy-mid: #1e3a6e;
+  --accent: #e8503a;
+  --accent-soft: #fdf0ed;
+  --teal: #1a7a6e;
+  --teal-light: #e0f4f1;
+  --warm: #f5a623;
+  --warm-light: #fef6e4;
+  --blue: #2c7a9e;
+  --blue-light: #e8f4fa;
+  --purple: #6b4bb5;
+  --purple-light: #f0ebfc;
+  --slate: #4a5568;
+  --muted: #718096;
+  --border: #e8edf3;
+  --border-dk: #c8d3df;
+  --light: #f8fafc;
+  --white: #ffffff;
+  --text: #1a202c;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { overflow-anchor: none; }
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  background: var(--white);
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.75;
+  overflow-x: hidden;
+}
+
+/* ═══ HEADER ═══ */
+.site-header {
+  background: var(--navy);
+  padding: 0 48px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 200;
+}
+.header-logo {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  color: rgba(255,255,255,0.9);
+}
+.header-sub {
+  font-size: 11px;
+  color: rgba(255,255,255,0.45);
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 0.08em;
+}
+.pdf-btn {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
+  letter-spacing: 0.05em;
+  transition: all 0.2s;
+  box-shadow: 0 2px 8px rgba(232,80,58,0.3);
+}
+.pdf-btn:hover { background: #d04a35; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(232,80,58,0.4); }
+.pdf-btn:active { transform: translateY(0); }
+.pdf-btn-icon { font-size: 13px; }
+
+/* ═══ HERO ═══ */
+.hero {
+  background: linear-gradient(135deg, var(--navy) 0%, #1a3260 60%, #0d3d5a 100%);
+  padding: 64px 48px 56px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 85% 15%, rgba(232,80,58,0.2) 0%, transparent 50%),
+    radial-gradient(ellipse at 5% 90%, rgba(26,122,110,0.15) 0%, transparent 45%);
+}
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+.hero-inner { position: relative; z-index: 1; max-width: 1000px; margin: 0 auto; }
+.hero-eyebrow {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  color: var(--accent);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+.hero-name {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 44px;
+  font-weight: 600;
+  color: white;
+  line-height: 1.25;
+  margin-bottom: 18px;
+  letter-spacing: 0.02em;
+}
+.hero-name em {
+  display: block;
+  font-family: 'DM Serif Display', serif;
+  font-style: italic;
+  font-size: 22px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.7);
+  margin-top: 8px;
+  letter-spacing: 0.01em;
+}
+.hero-desc { font-size: 14px; color: rgba(255,255,255,0.75); margin-bottom: 32px; }
+.hero-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 32px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255,255,255,0.12);
+}
+.hero-metric-item label {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+.hero-metric-item span { display: block; font-size: 13px; color: white; font-weight: 500; }
+
+/* ═══ TAB BAR ═══ */
+.tab-wrapper {
+  position: sticky;
+  top: 56px;
+  z-index: 100;
+  background: white;
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 2px 8px rgba(15,30,60,0.04);
+}
+.tab-hint {
+  background: linear-gradient(90deg, var(--accent) 0%, #e84a2a 100%);
+  color: white;
+  padding: 10px 48px;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 0.04em;
+  position: relative;
+  animation: tabHintPulse 2.5s ease-in-out infinite;
+}
+@keyframes tabHintPulse {
+  0%, 100% { background: linear-gradient(90deg, var(--accent) 0%, #e84a2a 100%); }
+  50% { background: linear-gradient(90deg, #f06045 0%, #ed5538 100%); }
+}
+.tab-hint .arrow { display: inline-block; margin: 0 12px; animation: bounceDown 1.4s ease-in-out infinite; }
+@keyframes bounceDown { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(3px); } }
+.tab-hint-close {
+  position: absolute; right: 16px; top: 50%; transform: translateY(-50%);
+  background: rgba(255,255,255,0.2); border: none; color: white;
+  width: 22px; height: 22px; border-radius: 50%; cursor: pointer; font-size: 12px;
+}
+.tab-bar { display: grid; grid-template-columns: repeat(5, 1fr); max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+.tab-btn {
+  background: transparent; border: none; padding: 18px 8px 16px; cursor: pointer;
+  font-family: 'Noto Sans JP', sans-serif; font-size: 13px; font-weight: 600;
+  color: var(--muted); position: relative; transition: all 0.25s;
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  border-bottom: 3px solid transparent;
+}
+.tab-btn:hover { color: var(--navy); background: var(--light); }
+.tab-btn.active { color: var(--navy); border-bottom-color: var(--accent); }
+.tab-btn .tab-icon { font-size: 18px; }
+.tab-btn .tab-num {
+  font-family: 'Montserrat', sans-serif; font-size: 9px; font-weight: 700;
+  letter-spacing: 0.15em; color: var(--muted); margin-top: 2px;
+}
+.tab-btn.active .tab-num { color: var(--accent); }
+
+/* ═══ TAB CONTENT ═══ */
+.tab-content { display: none; animation: tabFade 0.35s ease-out; }
+.tab-content.active { display: block; }
+@keyframes tabFade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+.page-body { max-width: 1000px; margin: 0 auto; padding: 56px 48px 80px; }
+
+/* ═══ SECTION HEAD ═══ */
+.sec-head { margin-bottom: 28px; position: relative; }
+.sec-label {
+  font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700;
+  letter-spacing: 0.3em; color: var(--accent); margin-bottom: 6px; text-transform: uppercase;
+}
+.sec-title { font-family: 'Noto Serif JP', serif; font-size: 26px; font-weight: 600; color: var(--navy); letter-spacing: 0.01em; }
+.sec-divider { width: 48px; height: 2px; background: var(--accent); margin-top: 12px; }
+.sec-sub { margin-top: 10px; font-size: 13px; color: var(--slate); line-height: 1.85; max-width: 760px; }
+
+.fancy-sep { display: flex; align-items: center; margin: 48px 0 32px; gap: 16px; }
+.fancy-sep::before, .fancy-sep::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.fancy-sep span {
+  font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700;
+  letter-spacing: 0.25em; color: var(--muted); text-transform: uppercase;
+}
+
+/* ═══ METRIC CARDS ═══ */
+.metric-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 48px; }
+.metric-card {
+  background: white; border: 1px solid var(--border); border-radius: 14px; padding: 22px 20px;
+  position: relative; border-top: 3px solid var(--accent); opacity: 0; animation: fadeUp 0.6s ease-out forwards;
+}
+.metric-card.c-teal { border-top-color: var(--teal); }
+.metric-card.c-navy { border-top-color: var(--navy-mid); }
+.metric-card.c-warm { border-top-color: var(--warm); }
+.metric-card.c-blue { border-top-color: var(--blue); }
+.stagger-1 { animation-delay: 0.05s; } .stagger-2 { animation-delay: 0.15s; }
+.stagger-3 { animation-delay: 0.25s; } .stagger-4 { animation-delay: 0.35s; }
+.stagger-5 { animation-delay: 0.45s; } .stagger-6 { animation-delay: 0.55s; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+.metric-num { font-family: 'DM Serif Display', serif; font-size: 36px; font-weight: 400; color: var(--navy); line-height: 1.1; margin-bottom: 6px; }
+.metric-num sub { font-family: 'Noto Sans JP', sans-serif; font-size: 12px; font-weight: 500; color: var(--slate); margin-left: 4px; vertical-align: baseline; }
+.metric-label { font-size: 11px; font-weight: 500; color: var(--slate); line-height: 1.6; }
+
+/* ═══ PROFILE GRID ═══ */
+.profile-grid { display: grid; grid-template-columns: 1fr 1px 1fr; gap: 32px; background: var(--light); border: 1px solid var(--border); border-radius: 16px; padding: 32px; margin-bottom: 32px; }
+.profile-div { background: var(--border); }
+.profile-col-ttl { font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.2em; color: var(--accent); margin-bottom: 16px; text-transform: uppercase; }
+.pf-row { display: grid; grid-template-columns: 8px 96px 1fr; gap: 12px; align-items: start; padding: 10px 0; border-bottom: 1px dashed var(--border); }
+.pf-row:last-child { border-bottom: none; }
+.pf-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); margin-top: 8px; }
+.pf-lbl { font-size: 11px; font-weight: 600; color: var(--muted); }
+.pf-val { font-size: 13px; color: var(--text); font-weight: 500; }
+.pf-val a { color: var(--blue); }
+.pill { display: inline-block; font-size: 11px; font-weight: 600; background: white; border: 1px solid var(--border-dk); color: var(--navy); padding: 4px 10px; border-radius: 12px; margin: 0 4px 4px 0; }
+.pill.p-teal { border-color: var(--teal); color: var(--teal); background: var(--teal-light); }
+.pill.p-coral { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+.pill.p-warm { border-color: var(--warm); color: #854F0B; background: var(--warm-light); }
+.pill.p-blue { border-color: var(--blue); color: var(--blue); background: var(--blue-light); }
+.highlight-box { background: white; border: 1.5px solid var(--accent); border-radius: 12px; padding: 18px 20px; font-size: 12px; line-height: 1.85; color: var(--slate); }
+
+/* ═══ CAREER PATH ═══ */
+.career-path { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; background: white; border: 1px solid var(--border); border-radius: 14px; padding: 22px 24px; margin-bottom: 32px; }
+.career-step { background: var(--light); border: 1.5px solid var(--border-dk); border-radius: 10px; padding: 10px 14px; font-size: 12px; font-weight: 600; color: var(--navy); display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.career-step small { font-size: 9px; font-weight: 700; letter-spacing: 0.1em; color: var(--muted); font-family: 'Montserrat', sans-serif; }
+.career-step.now { border-color: var(--accent); background: var(--accent-soft); color: var(--accent); }
+.career-arr { color: var(--accent); font-weight: 700; font-size: 16px; }
+
+/* ═══ NEEDS GRID ═══ */
+.needs-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-bottom: 36px; }
+.need-card { background: white; border: 1px solid var(--border); border-radius: 14px; padding: 22px; position: relative; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; }
+.need-card:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(15,30,60,0.07); }
+.need-num { font-family: 'Montserrat', sans-serif; font-size: 9px; font-weight: 800; letter-spacing: 0.2em; color: var(--accent); margin-bottom: 8px; text-transform: uppercase; }
+.need-ttl { font-size: 15px; font-weight: 700; color: var(--navy); line-height: 1.45; margin-bottom: 10px; position: relative; z-index: 1; }
+.need-body { font-size: 12px; color: var(--slate); line-height: 1.85; position: relative; z-index: 1; }
+.need-bg-icon { position: absolute; right: -10px; bottom: -16px; font-size: 72px; opacity: 0.06; z-index: 0; }
+
+/* ═══ ACCORDION ═══ */
+.accordion { background: white; border: 1px solid var(--border); border-radius: 12px; margin-bottom: 14px; overflow: hidden; transition: box-shadow 0.2s; }
+.accordion:hover { box-shadow: 0 2px 8px rgba(15,30,60,0.06); }
+.acc-head { padding: 16px 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: linear-gradient(90deg, white, var(--light)); user-select: none; transition: background 0.2s; }
+.acc-head:hover { background: var(--light); }
+.acc-head-left { display: flex; align-items: center; gap: 12px; flex: 1; }
+.acc-num { font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 800; background: var(--navy); color: white; padding: 4px 8px; border-radius: 4px; letter-spacing: 0.08em; min-width: 36px; text-align: center; }
+.acc-num.c-coral { background: var(--accent); }
+.acc-num.c-teal { background: var(--teal); }
+.acc-num.c-warm { background: var(--warm); color: var(--navy); }
+.acc-num.c-blue { background: var(--blue); }
+.acc-num.c-purple { background: var(--purple); }
+.acc-ttl { font-size: 14px; font-weight: 600; color: var(--navy); flex: 1; }
+.acc-tag { font-size: 10px; font-weight: 600; padding: 3px 8px; border-radius: 10px; background: var(--light); color: var(--muted); letter-spacing: 0.02em; }
+.acc-tag.t-active { background: var(--teal-light); color: var(--teal); }
+.acc-tag.t-warn { background: var(--accent-soft); color: var(--accent); }
+.acc-tag.t-done { background: var(--teal-light); color: var(--teal); }
+.acc-icon { width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; font-size: 18px; color: var(--accent); font-weight: 700; transition: transform 0.3s; flex-shrink: 0; }
+.accordion.open .acc-icon { transform: rotate(45deg); }
+.acc-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+.accordion.open .acc-body { max-height: 3000px; }
+.acc-body-inner { padding: 8px 20px 22px; border-top: 1px dashed var(--border); font-size: 13px; color: var(--slate); line-height: 1.9; }
+.acc-body-inner ul { padding-left: 20px; margin-top: 6px; }
+.acc-body-inner li { margin-bottom: 5px; }
+.acc-body-inner strong { color: var(--navy); }
+
+/* ═══ TIMELINE ═══ */
+.tl-wrap { position: relative; padding-left: 56px; margin-bottom: 40px; }
+.tl-rail { position: absolute; left: 20px; top: 12px; bottom: 12px; width: 2px; background: linear-gradient(180deg, var(--teal), var(--blue), var(--warm), var(--border-dk)); }
+.tl-entry { position: relative; margin-bottom: 24px; }
+.tl-pin { position: absolute; left: -48px; top: 14px; width: 36px; height: 36px; border-radius: 50%; background: white; border: 3px solid var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 800; color: var(--accent); z-index: 1; }
+.tl-pin.p-done { border-color: var(--teal); color: var(--teal); background: var(--teal-light); }
+.tl-pin.p-train { border-color: var(--blue); color: var(--blue); }
+.tl-pin.p-fup { border-color: var(--accent); color: var(--accent); }
+.tl-pin.p-monthly { border-color: var(--warm); color: #854F0B; }
+.tl-pin.p-future { border-color: var(--border-dk); color: var(--muted); background: var(--light); }
+.tl-card { background: white; border: 1.5px solid var(--border); border-radius: 12px; padding: 18px 22px; border-top: 3px solid var(--accent); position: relative; }
+.tl-card.t-done { border-top-color: var(--teal); background: linear-gradient(135deg, var(--teal-light), white); }
+.tl-card.t-train { border-top-color: var(--blue); }
+.tl-card.t-fup { border-top-color: var(--accent); }
+.tl-card.t-monthly { border-top-color: var(--warm); }
+.tl-card.t-future { border-top-color: var(--border-dk); background: var(--light); }
+.tl-card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; gap: 12px; }
+.tl-date { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; color: var(--muted); letter-spacing: 0.05em; margin-bottom: 4px; }
+.tl-date.today { color: var(--teal); font-weight: 800; }
+.tl-ttl { font-size: 15px; font-weight: 700; color: var(--navy); line-height: 1.4; }
+.tl-phase { font-size: 10px; font-weight: 700; padding: 4px 10px; border-radius: 10px; background: var(--accent-soft); color: var(--accent); flex-shrink: 0; letter-spacing: 0.04em; }
+.tl-phase.t-done { background: var(--teal); color: white; }
+.tl-phase.t-train { background: var(--blue-light); color: var(--blue); }
+.tl-phase.t-monthly { background: var(--warm-light); color: #854F0B; }
+.tl-phase.t-future { background: var(--light); color: var(--muted); }
+.tl-body { font-size: 13px; color: var(--slate); line-height: 1.85; margin-top: 6px; }
+.tl-tags { margin-top: 12px; }
+.tl-tag { display: inline-block; font-size: 10px; font-weight: 600; background: var(--light); color: var(--slate); padding: 3px 8px; border-radius: 8px; margin: 0 4px 4px 0; border: 1px solid var(--border); }
+
+/* ═══ SKILL BARS ═══ */
+.skill-legend { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 22px; padding: 14px 18px; background: var(--light); border-radius: 10px; }
+.legend-item { display: flex; align-items: center; gap: 8px; font-size: 11px; color: var(--slate); font-weight: 500; }
+.legend-dot { width: 10px; height: 10px; border-radius: 50%; }
+.skill-section { background: white; border: 1px solid var(--border); border-radius: 14px; padding: 24px; margin-bottom: 18px; }
+.skill-sec-ttl { font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+.skill-row { display: grid; grid-template-columns: 220px 1fr 50px; gap: 14px; align-items: center; margin-bottom: 12px; }
+.skill-row:last-child { margin-bottom: 0; }
+.skill-lbl { font-size: 12px; font-weight: 500; color: var(--text); }
+.skill-bar-bg { height: 10px; background: var(--light); border-radius: 5px; overflow: hidden; position: relative; }
+.skill-bar-fill { height: 100%; border-radius: 5px; width: 0; transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
+.fill-hi { background: linear-gradient(90deg, var(--teal), #2da78d); }
+.fill-md { background: linear-gradient(90deg, var(--blue), #3a90b3); }
+.fill-lo { background: linear-gradient(90deg, var(--accent), #f06045); }
+.fill-xs { background: linear-gradient(90deg, #aab, #889); }
+.skill-pct { font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 700; color: var(--slate); text-align: right; }
+
+/* ═══ TIP TOOLTIP ═══ */
+.tip { position: relative; border-bottom: 1px dotted var(--blue); cursor: help; color: var(--blue); font-weight: 600; }
+.tip:hover::after {
+  content: attr(data-tip); position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%);
+  background: var(--navy); color: white; padding: 8px 12px; border-radius: 6px; font-size: 11px; font-weight: 400;
+  z-index: 100; box-shadow: 0 6px 16px rgba(15,30,60,0.2); white-space: normal; width: max-content; max-width: 260px; line-height: 1.6;
+}
+.tip:hover::before { content: ''; position: absolute; bottom: calc(100% + 2px); left: 50%; transform: translateX(-50%); border: 6px solid transparent; border-top-color: var(--navy); z-index: 100; }
+
+/* ═══ TWO-TYPE / USE-WHICH CARDS ═══ */
+.use-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-bottom: 32px; }
+.use-card { border-radius: 14px; padding: 22px; border: 1.5px solid var(--border); position: relative; overflow:hidden; }
+.use-card.t1 { border-top: 4px solid var(--blue); background: linear-gradient(135deg, var(--blue-light), white); }
+.use-card.t2 { border-top: 4px solid var(--teal); background: linear-gradient(135deg, var(--teal-light), white); }
+.use-badge { font-family:'Montserrat',sans-serif; font-size: 11px; font-weight: 800; letter-spacing: 0.1em; margin-bottom: 10px; display:inline-block; padding: 4px 10px; border-radius: 8px; }
+.use-card.t1 .use-badge { background: var(--blue); color: white; }
+.use-card.t2 .use-badge { background: var(--teal); color: white; }
+.use-card h4 { font-size: 15px; color: var(--navy); margin-bottom: 8px; }
+.use-card ul { padding-left: 18px; font-size: 12px; color: var(--slate); line-height: 1.9; }
+.use-card li strong { color: var(--navy); }
+
+/* ═══ MODEL FIGURE (高速 vs プロ) ═══ */
+.model-fig { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+.model-card { border: 1.5px solid var(--border); border-radius: 14px; padding: 22px; background: white; position: relative; }
+.model-card.instant { border-top: 4px solid var(--warm); }
+.model-card.thinking { border-top: 4px solid var(--purple); }
+.model-h { display:flex; align-items:center; gap: 10px; margin-bottom: 14px; }
+.model-icon { font-size: 24px; }
+.model-name { font-size: 16px; font-weight: 700; color: var(--navy); }
+.model-name small { display:block; font-size: 11px; font-weight: 500; color: var(--muted); }
+.model-stat { display:flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px dashed var(--border); font-size: 12px; }
+.model-stat:last-of-type { border-bottom: none; }
+.model-stat .k { color: var(--muted); }
+.model-stat .v { font-weight: 700; color: var(--navy); }
+.model-foot { margin-top: 12px; font-size: 11.5px; color: var(--slate); line-height: 1.75; background: var(--light); padding: 10px 12px; border-radius: 8px; }
+
+/* ═══ PROMPT 5 ELEMENTS ═══ */
+.p5-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 18px; }
+.p5-card { background: white; border: 1.5px solid var(--border); border-radius: 12px; padding: 16px 12px; text-align: center; border-top: 3px solid var(--blue); }
+.p5-num { font-family:'DM Serif Display',serif; font-size: 26px; color: var(--blue); line-height: 1; margin-bottom: 6px; }
+.p5-ttl { font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+.p5-en { font-family:'Montserrat',sans-serif; font-size: 8px; font-weight: 700; letter-spacing: 0.12em; color: var(--muted); text-transform: uppercase; margin-bottom: 8px; }
+.p5-desc { font-size: 10.5px; color: var(--slate); line-height: 1.6; }
+
+/* ═══ FLOW DIAGRAM ═══ */
+.flow { display:grid; grid-template-columns: 1fr 36px 1fr 36px 1fr; gap: 6px; align-items:center; margin: 18px 0 8px; }
+.flow-node { background: linear-gradient(180deg, var(--light), white); border:1.5px solid var(--border-dk); border-radius:12px; padding:16px 10px; text-align:center; min-height:96px; display:flex; flex-direction:column; justify-content:center; }
+.flow-node.a { border-color: var(--blue); background: var(--blue-light); }
+.flow-node.b { border-color: var(--warm); background: var(--warm-light); }
+.flow-node.c { border-color: var(--teal); background: var(--teal-light); }
+.flow-ic { font-size: 22px; margin-bottom: 4px; }
+.flow-t { font-size: 12.5px; font-weight: 700; color: var(--navy); }
+.flow-s { font-size: 10px; color: var(--muted); margin-top:4px; line-height:1.5; }
+.flow-arr { text-align:center; font-size: 22px; color: var(--accent); font-weight:700; animation: arrowPulse 1.8s ease-in-out infinite; }
+@keyframes arrowPulse { 0%,100% { opacity:.6; transform: translateX(0);} 50%{opacity:1; transform: translateX(3px);} }
+
+/* ═══ FILTER BAR ═══ */
+.filter-bar { background: linear-gradient(180deg, var(--light), white); border: 1.5px solid var(--border-dk); border-radius: 14px; padding: 18px 20px; margin-bottom: 28px; position: relative; }
+.filter-bar-top { display: grid; grid-template-columns: 1fr auto; gap: 14px; align-items: center; margin-bottom: 14px; }
+.filter-search { position: relative; }
+.filter-search input { width: 100%; padding: 10px 14px 10px 40px; border: 1.5px solid var(--border-dk); border-radius: 8px; font-size: 13px; font-family: inherit; background: white; color: var(--text); transition: all 0.2s; }
+.filter-search input::placeholder { color: var(--muted); }
+.filter-search input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(232,80,58,0.1); }
+.filter-search::before { content: '🔍'; position: absolute; left: 12px; top: 50%; transform: translateY(-50%); font-size: 14px; pointer-events: none; opacity: 0.55; }
+.filter-clear { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); background: var(--border); color: var(--slate); border: none; width: 22px; height: 22px; border-radius: 50%; cursor: pointer; font-size: 11px; font-weight: 700; display: none; align-items: center; justify-content: center; }
+.filter-clear.show { display: flex; }
+.filter-clear:hover { background: var(--muted); color: white; }
+.filter-stats { font-size: 11px; color: var(--muted); font-weight: 600; white-space: nowrap; letter-spacing: 0.02em; }
+.filter-stats strong { color: var(--accent); font-family: 'Montserrat', sans-serif; font-size: 16px; margin-right: 3px; font-weight: 700; }
+.filter-chips { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.filter-label { font-size: 10px; font-weight: 700; letter-spacing: 0.15em; color: var(--muted); margin-right: 4px; text-transform: uppercase; }
+.chip { background: white; border: 1.5px solid var(--border-dk); color: var(--slate); padding: 6px 12px; border-radius: 16px; font-size: 11px; font-weight: 600; cursor: pointer; transition: all 0.2s; font-family: inherit; display: inline-flex; align-items: center; gap: 4px; }
+.chip:hover { border-color: var(--accent); color: var(--accent); }
+.chip.active { background: var(--accent); color: white; border-color: var(--accent); }
+.chip-count { display: inline-block; font-size: 9px; font-family: 'Montserrat', sans-serif; font-weight: 700; opacity: 0.75; padding: 1px 5px; background: rgba(0,0,0,0.06); border-radius: 8px; min-width: 16px; text-align: center; }
+.chip.active .chip-count { background: rgba(255,255,255,0.25); }
+.subsection { margin-bottom: 32px; transition: opacity 0.3s; }
+.subsec-head { font-family: 'Noto Sans JP', sans-serif; font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 14px; padding-bottom: 8px; border-bottom: 1.5px solid var(--border); display: flex; align-items: center; gap: 8px; }
+.subsec-head .subsec-icon { font-size: 16px; }
+.subsec-head .subsec-count { margin-left: auto; font-size: 10px; font-weight: 600; color: var(--muted); background: var(--light); padding: 3px 8px; border-radius: 10px; letter-spacing: 0.02em; }
+.filter-empty { display: none; padding: 48px 24px; text-align: center; background: var(--light); border: 1.5px dashed var(--border-dk); border-radius: 14px; margin: 16px 0; }
+.filter-empty.show { display: block; }
+.filter-empty-icon { font-size: 36px; margin-bottom: 10px; opacity: 0.4; }
+.filter-empty-ttl { font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+.filter-empty-desc { font-size: 11px; color: var(--muted); }
+.filter-empty-reset { margin-top: 14px; background: white; border: 1.5px solid var(--accent); color: var(--accent); padding: 8px 18px; border-radius: 20px; font-size: 11px; font-weight: 700; cursor: pointer; font-family: inherit; transition: all 0.2s; }
+.filter-empty-reset:hover { background: var(--accent); color: white; }
+
+/* ═══ EMPTY STATE ═══ */
+.empty-state { background: linear-gradient(135deg, var(--light), white); border: 2px dashed var(--border-dk); border-radius: 14px; padding: 32px 24px; text-align: center; margin-bottom: 16px; }
+.empty-icon { font-size: 28px; margin-bottom: 10px; opacity: 0.5; }
+.empty-ttl { font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+.empty-desc { font-size: 11px; color: var(--muted); }
+
+/* ═══ MATRIX (BEFORE/AFTER) ═══ */
+.matrix-wrap { background: white; border: 1px solid var(--border); border-radius: 14px; padding: 24px; margin-bottom: 14px; }
+.matrix-head { display: grid; grid-template-columns: 1fr 32px 1fr; gap: 16px; padding-bottom: 14px; margin-bottom: 14px; border-bottom: 2px solid var(--accent); }
+.matrix-head span { font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 800; letter-spacing: 0.1em; color: var(--navy); text-transform: uppercase; }
+.matrix-head span:nth-child(2) { text-align: center; }
+.matrix-row { display: grid; grid-template-columns: 1fr 32px 1fr; gap: 16px; padding: 12px 0; border-bottom: 1px dashed var(--border); align-items: center; font-size: 12px; }
+.matrix-row:last-child { border-bottom: none; }
+.mx-from { color: var(--muted); }
+.mx-arr { text-align: center; color: var(--accent); font-weight: 700; }
+.mx-to { color: var(--navy); font-weight: 600; }
+
+/* ═══ SECURITY CARDS ═══ */
+.sec-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-bottom: 24px; }
+.sec-card { background: white; border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 12px; padding: 18px 20px; }
+.sec-card.ok { border-left-color: var(--teal); }
+.sec-card h4 { font-size: 13.5px; color: var(--navy); margin-bottom: 8px; display:flex; align-items:center; gap:8px; }
+.sec-card p { font-size: 12px; color: var(--slate); line-height: 1.8; }
+
+/* ═══ INFO CALLOUT ═══ */
+.callout { background: var(--light); border-left: 3px solid var(--accent); border-radius: 6px; padding: 14px 18px; font-size: 12.5px; color: var(--slate); line-height: 1.85; margin-bottom: 24px; }
+.callout strong { color: var(--navy); }
+.callout.teal { border-left-color: var(--teal); }
+.callout.blue { border-left-color: var(--blue); }
+.callout.warm { border-left-color: var(--warm); }
+
+.log-link { display: inline-block; color: var(--blue); text-decoration: none; border-bottom: 1px solid transparent; font-weight: 600; word-break: break-all; }
+.log-link:hover { border-bottom-color: var(--blue); }
+
+/* ═══ FOOTER ═══ */
+.site-footer { background: var(--navy); color: rgba(255,255,255,0.6); padding: 32px 48px; text-align: center; font-size: 11px; letter-spacing: 0.04em; }
+.site-footer strong { color: white; }
+
+/* ═══ RESPONSIVE ═══ */
+@media (max-width: 900px) {
+  body { font-size: 13px; }
+  .site-header { padding: 0 16px; }
+  .header-sub { display: none; }
+  .hero { padding: 40px 22px 36px; }
+  .hero-name { font-size: 28px; }
+  .hero-name em { font-size: 16px; }
+  .hero-metrics { grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 24px; padding-top: 24px; }
+  .tab-hint { padding: 8px 16px; font-size: 11px; }
+  .tab-bar { display: flex; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: thin; padding: 0 8px; }
+  .tab-bar::-webkit-scrollbar { height: 3px; }
+  .tab-bar::-webkit-scrollbar-thumb { background: var(--border-dk); }
+  .tab-btn { flex: 0 0 auto; min-width: 130px; padding: 12px 8px 10px; font-size: 11px; }
+  .tab-btn .tab-icon { font-size: 16px; }
+  .tab-btn .tab-num { font-size: 8px; }
+  .page-body { padding: 36px 20px 60px; }
+  .sec-title { font-size: 21px; }
+  .metric-row { grid-template-columns: repeat(2, 1fr); }
+  .profile-grid { grid-template-columns: 1fr; gap: 20px; }
+  .profile-div { display: none; }
+  .needs-grid, .use-grid, .model-fig, .sec-grid { grid-template-columns: 1fr; }
+  .skill-row { grid-template-columns: 130px 1fr 40px; gap: 8px; }
+  .p5-grid { grid-template-columns: repeat(2, 1fr); }
+  .flow { grid-template-columns: 1fr; gap: 6px; }
+  .flow-arr { transform: rotate(90deg); }
+  .filter-bar-top { grid-template-columns: 1fr; }
+  .career-path { font-size: 11px; }
+}
+@media print {
+  .tab-wrapper, .pdf-btn, .tab-hint { display: none !important; }
+  .tab-content { display: block !important; page-break-before: always; }
+  .tab-content:first-of-type { page-break-before: auto; }
+  .accordion .acc-body { max-height: none !important; }
+  .hero { background: var(--navy) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+.tab-btn:focus-visible, .chip:focus-visible, .acc-head:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .skill-bar-fill { transition: none !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════ HEADER ═══════════ -->
+<header class="site-header">
+  <div class="header-logo">AIBL ／ AI BUSINESS LABO</div>
+  <div style="display:flex; align-items:center; gap:14px;">
+    <div class="header-sub">Client Dashboard — Toho Kagu Co., Ltd.</div>
+    <button class="pdf-btn" onclick="exportPDF()" aria-label="PDFとして保存・印刷">
+      <span class="pdf-btn-icon" aria-hidden="true">📄</span><span>PDF出力 / 印刷</span>
+    </button>
+  </div>
+</header>
+
+<!-- ═══════════ HERO ═══════════ -->
+<div class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">AI Learning &amp; Practice Dashboard</div>
+    <div class="hero-name">池田 禎治 様<br><em>AI活用 伴走ダッシュボード</em></div>
+    <div class="hero-desc">東邦家具株式会社 ／ 家具製作・建築／内装工事 × 生成AI の実践記録</div>
+
+    <div style="margin-top:28px; padding:16px 22px; background:rgba(255,255,255,0.05); border-left:3px solid var(--accent); border-radius:6px; backdrop-filter:blur(8px);">
+      <div style="font-family:'DM Serif Display',serif; font-style:italic; font-size:17px; color:rgba(255,255,255,0.92); line-height:1.6;">「まずは自分自身がAIを理解し、社内のみんながAIを使えるきっかけをつくりたい。最優先は経理の仕分けを効率化し、決算期にまとめるのではなく“日常業務”として回せる状態にすること。」</div>
+      <div style="font-size:11px; color:rgba(255,255,255,0.55); margin-top:6px; font-family:'Montserrat',sans-serif; letter-spacing:0.06em;">— 事前ヒアリングで伺った目標を要約</div>
+    </div>
+
+    <div class="hero-metrics">
+      <div class="hero-metric-item"><label>Company</label><span>東邦家具株式会社（現70期・三代目）</span></div>
+      <div class="hero-metric-item"><label>Role</label><span>三代目 ／ 設計・特殊物件・経理 ご担当</span></div>
+      <div class="hero-metric-item"><label>担当講師</label><span>AIBL 専任講師</span></div>
+      <div class="hero-metric-item"><label>Next Session</label><span>2026年9月18日（金）9:30〜13:00 初級編</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ TAB BAR ═══════════ -->
+<div class="tab-wrapper">
+  <div class="tab-hint" id="tabHint">
+    <span class="arrow">▼</span>
+    下の<strong>5つのタブ</strong>をクリックすると、ページを切り替えられます
+    <span class="arrow">▼</span>
+    <button class="tab-hint-close" onclick="document.getElementById('tabHint').style.display='none'" aria-label="閉じる">✕</button>
+  </div>
+  <div class="tab-bar" role="tablist" aria-label="ダッシュボードのセクション切替">
+    <button id="tab1-btn" class="tab-btn active" onclick="switchTab('tab1',this)" role="tab" aria-selected="true" aria-controls="tab1">
+      <span class="tab-icon" aria-hidden="true">👤</span> 概要・プロフィール <span class="tab-num">P.1</span>
+    </button>
+    <button id="tab2-btn" class="tab-btn" onclick="switchTab('tab2',this)" role="tab" aria-selected="false" aria-controls="tab2">
+      <span class="tab-icon" aria-hidden="true">🎯</span> 課題・ニーズ分析 <span class="tab-num">P.2</span>
+    </button>
+    <button id="tab3-btn" class="tab-btn" onclick="switchTab('tab3',this)" role="tab" aria-selected="false" aria-controls="tab3">
+      <span class="tab-icon" aria-hidden="true">🧭</span> ChatGPTの基礎・プロンプト術 <span class="tab-num">P.3</span>
+    </button>
+    <button id="tab4-btn" class="tab-btn" onclick="switchTab('tab4',this)" role="tab" aria-selected="false" aria-controls="tab4">
+      <span class="tab-icon" aria-hidden="true">🗺️</span> ロードマップ <span class="tab-num">P.4</span>
+    </button>
+    <button id="tab5-btn" class="tab-btn" onclick="switchTab('tab5',this)" role="tab" aria-selected="false" aria-controls="tab5">
+      <span class="tab-icon" aria-hidden="true">📅</span> 研修・MTG記録 <span class="tab-num">P.5</span>
+    </button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- ═══ TAB 1: 概要・プロフィール ═══ -->
+<!-- ═══════════════════════════════════════════════ -->
+<div id="tab1" class="tab-content active" role="tabpanel" aria-labelledby="tab1-btn">
+<div class="page-body">
+
+  <!-- METRICS -->
+  <div class="sec-head">
+    <div class="sec-label">Overview</div>
+    <div class="sec-title">現状サマリー</div>
+    <div class="sec-divider"></div>
+    <div class="sec-sub">池田様は、<strong>家具製作と建築・内装工事</strong>を手がける東邦家具株式会社の<strong>三代目</strong>で、設計・特殊物件対応から経理まで幅広くご担当されています。現在は<strong>無料版のChatGPT</strong>を調べ物などで使い始めた段階です。本サイトは、<strong>2026年9月18日（金）の初級編</strong>から始まる研修・MTGの内容を、<strong>継続的に蓄積していく伴走記録</strong>として設計しています。</div>
+  </div>
+  <div class="metric-row">
+    <div class="metric-card stagger-1">
+      <div class="metric-num">約<span class="counter" data-target="35">0</span><sub>年</sub></div>
+      <div class="metric-label">家具・建築業でのご経験<br>積水ハウス8年を経て、自社で約35年</div>
+    </div>
+    <div class="metric-card c-blue stagger-2">
+      <div class="metric-num">ChatGPT<sub></sub></div>
+      <div class="metric-label">現在ご利用中のAI（無料版）<br>調べ物などで使用（本格活用はこれから）</div>
+    </div>
+    <div class="metric-card c-teal stagger-3">
+      <div class="metric-num">経理<sub>最優先</sub></div>
+      <div class="metric-label">AI導入の最優先テーマ<br>「仕分けの効率化」を今期から</div>
+    </div>
+    <div class="metric-card c-warm stagger-4">
+      <div class="metric-num">全<span class="counter" data-target="2">0</span><sub>回+FUP</sub></div>
+      <div class="metric-label">研修（初級・中級）＋<br>フォローアップMTG</div>
+    </div>
+  </div>
+
+  <!-- PROFILE -->
+  <div class="sec-head">
+    <div class="sec-label">Profile</div>
+    <div class="sec-title">受講者プロフィール</div>
+    <div class="sec-divider"></div>
+  </div>
+  <div class="profile-grid">
+    <div class="profile-col">
+      <div class="profile-col-ttl">基本情報</div>
+      <div class="pf-row"><div class="pf-dot"></div><div class="pf-lbl">氏名</div><div class="pf-val">池田 禎治 様</div></div>
+      <div class="pf-row"><div class="pf-dot"></div><div class="pf-lbl">会社</div><div class="pf-val">東邦家具株式会社（現70期目・池田様は三代目）</div></div>
+      <div class="pf-row"><div class="pf-dot"></div><div class="pf-lbl">会社URL</div><div class="pf-val"><a href="http://tohokagu.com/" target="_blank" rel="noopener noreferrer" class="log-link">http://tohokagu.com/</a></div></div>
+      <div class="pf-row"><div class="pf-dot"></div><div class="pf-lbl">事業内容</div><div class="pf-val">家具製作 ＋ 建築・内装工事（住宅用の作り付け家具、富裕層向けオーダー家具 など）</div></div>
+      <div class="pf-row"><div class="pf-dot"></div><div class="pf-lbl">役割</div><div class="pf-val">三代目 ／ 特殊物件・大型物件対応 ・ 設計 ・ 既存顧客の工事対応 ・ 経理</div></div>
+      <div class="pf-row"><div class="pf-dot"></div><div class="pf-lbl">主な担当</div><div class="pf-val">特殊物件・大型物件の対応 ／ 設計業務 ／ 既存顧客の工事対応 ／ 経理業務（仕入れの経理処理・仕分け）</div></div>
+      <div class="pf-row"><div class="pf-dot"></div><div class="pf-lbl">参加のきっかけ</div><div class="pf-val">パーソナルトレーナーのダンさんのご紹介。「AIで簡単にできる」と伺い、ご興味を持たれた</div></div>
+    </div>
+    <div class="profile-div"></div>
+    <div class="profile-col">
+      <div class="profile-col-ttl">強み・現在地</div>
+      <div style="margin-bottom:16px; line-height:2.2;">
+        <span class="pill p-coral">家具・建築業 約35年</span>
+        <span class="pill p-coral">三代目・現70期</span>
+        <span class="pill">積水ハウス出身（8年）</span>
+        <span class="pill p-blue">設計・特殊物件対応</span>
+        <span class="pill p-blue">ChatGPT（無料版）を利用</span>
+        <span class="pill p-teal">調べ物でAI活用中</span>
+        <span class="pill p-warm">経理の効率化を重視</span>
+        <span class="pill p-warm">社内全体での活用を志向</span>
+      </div>
+      <div class="highlight-box">
+        💡 <strong style="color:var(--navy)">池田様の特徴：</strong><br>
+        積水ハウスで8年勤務された後、自社に戻って約35年、<strong>三代目</strong>として設計・特殊物件・経理まで幅広く担われています。現在は<strong>無料版のChatGPT</strong>を調べ物中心に使い始めたところで、「<strong>AIをどう仕事に使えるのか、まだ分からない</strong>」というのが正直なご認識です。最優先は<strong>経理の仕分けの効率化</strong>。そして<strong>特定の担当者お一人に任せるのではなく、社内のみんなが運用できる状態</strong>を目指す──ここが、これからの研修・伴走の軸になります。
+      </div>
+    </div>
+  </div>
+
+  <!-- CAREER PATH -->
+  <div class="sec-head">
+    <div class="sec-label">Career</div>
+    <div class="sec-title">これまでの歩み</div>
+    <div class="sec-divider"></div>
+    <div class="sec-sub">大学卒業後、大手ハウスメーカーでのご経験を経て、ご家業である東邦家具を三代目として承継されています。</div>
+  </div>
+  <div class="career-path">
+    <div class="career-step"><small>はじめ</small>大学卒業</div>
+    <span class="career-arr">→</span>
+    <div class="career-step">積水ハウス（8年）</div>
+    <span class="career-arr">→</span>
+    <div class="career-step">東邦家具へ（約35年）</div>
+    <span class="career-arr">→</span>
+    <div class="career-step">三代目として承継</div>
+    <span class="career-arr">→</span>
+    <div class="career-step now"><small>現在</small>設計・特殊物件・経理</div>
+  </div>
+
+  <!-- AI USAGE STATUS -->
+  <div class="sec-head">
+    <div class="sec-label">AI Usage</div>
+    <div class="sec-title">現在のAI活用状況</div>
+    <div class="sec-divider"></div>
+    <div class="sec-sub">事前ヒアリングで伺った内容を整理しています。専門用語には<span class="tip" data-tip="このように下線の付いた言葉にマウスを乗せる（スマホはタップ）と、やさしい解説が表示されます">点線の注釈</span>を付けています。</div>
+  </div>
+  <div class="needs-grid">
+    <div class="need-card stagger-1">
+      <div class="need-num">MAIN TOOL</div>
+      <div class="need-ttl">無料版ChatGPT（調べ物が中心）</div>
+      <div class="need-body">OpenAIが開発した<span class="tip" data-tip="指示によって文章・画像などの新しいコンテンツを生み出すAIの技術分野。AIという大きなくくりの中の一分野です">生成AI</span>の代表的なツール。現在は主に<strong>調べ物</strong>で使用されていますが、毎日ではなく、<strong>仕事への本格的な活用はこれから</strong>という段階です。</div>
+      <div class="need-bg-icon">🤖</div>
+    </div>
+    <div class="need-card stagger-2">
+      <div class="need-num">INTEREST</div>
+      <div class="need-ttl">設計パースへの関心</div>
+      <div class="need-body">別会社（設計会社）では、AIを使った<strong>設計パース・完成イメージの作成</strong>を試し始めているとのこと。池田様も、設計・デザインにかかる時間を短くする<strong>設計支援</strong>に強い関心をお持ちです。</div>
+      <div class="need-bg-icon">🏠</div>
+    </div>
+    <div class="need-card stagger-3">
+      <div class="need-num">CURRENT ISSUE</div>
+      <div class="need-ttl">「何ができるか」が見えていない</div>
+      <div class="need-body">「AIをどのように仕事へ使えるのか、まだ分からない」というのが現在地。まずは<strong>“何ができるか”を知り、池田様ご自身が理解する</strong>ことが、研修の最初のゴールです。</div>
+      <div class="need-bg-icon">🔍</div>
+    </div>
+    <div class="need-card stagger-4">
+      <div class="need-num">TEAM</div>
+      <div class="need-ttl">経理を3名で引き継ぎ中</div>
+      <div class="need-body">これまでお母様が担当されていた経理業務を、現在は<strong>池田様・経理担当者・奥様の3名</strong>で引き継いでいる途中。だからこそ「特定の1人に頼らない」仕組みづくりが重要になります。</div>
+      <div class="need-bg-icon">👥</div>
+    </div>
+  </div>
+
+  <div class="callout warm">
+    📌 <strong>運用の前提として共有したい重要ポイント：</strong> 経理では<strong>決算資料・仕入先情報・金額</strong>など、外部に見られたくない情報を扱います。AIに渡す際は<span class="tip" data-tip="数字や固有名詞を伏せたり、架空の情報に置き換えたりして、本物の機密情報をAIに渡さないようにする処理">マスキング／ダミーデータ</span>に置き換える、<strong>金額の最終確認は必ず人が行う</strong>といった基本ルールが大切です（→ 詳細はP.2セキュリティ）。</div>
+
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- ═══ TAB 2: 課題・ニーズ分析 ═══ -->
+<!-- ═══════════════════════════════════════════════ -->
+<div id="tab2" class="tab-content" role="tabpanel" aria-labelledby="tab2-btn">
+<div class="page-body">
+
+  <div class="sec-head">
+    <div class="sec-label">Challenges</div>
+    <div class="sec-title">現状の課題（6つのカテゴリに整理）</div>
+    <div class="sec-divider"></div>
+    <div class="sec-sub">池田様が事前ヒアリングで挙げられた課題を、関連性のある<strong>6カテゴリ</strong>に整理しました。研修・MTGを通じて、それぞれに具体的な解決アプローチを当てていきます。<strong>最優先は「経理業務」</strong>です。</div>
+  </div>
+
+  <div class="needs-grid">
+    <div class="need-card stagger-1">
+      <div class="need-num">CHALLENGE 01 ／ 経理（最優先）</div>
+      <div class="need-ttl">経理の仕分けが複雑で時間がかかる</div>
+      <div class="need-body">科目が多く、<strong>同じ仕入先でも科目を変更する</strong>ケースがある。仕入先も多く、毎月の処理に時間がかかる。ここをAIで<strong>効率化</strong>することが、いちばんの目標です。<br><span style="color:var(--muted); font-size:11px;">▼ 元の表現「経理の仕分けが複雑」「同じ仕入先でも科目変更」「仕入先が多く毎月時間がかかる」</span></div>
+      <div class="need-bg-icon">🧮</div>
+    </div>
+    <div class="need-card stagger-2">
+      <div class="need-num">CHALLENGE 02 ／ 月次処理</div>
+      <div class="need-ttl">処理が後回しになり、決算期にまとめて対応</div>
+      <div class="need-body">経理に追われると本来の仕事ができなくなるため、つい後回しに。結果として<strong>月次処理が十分にできず、決算期にまとめて処理</strong>する状態。日常的に回せる形にしたい。<br><span style="color:var(--muted); font-size:11px;">▼ 元の表現「経理を後回しにしてしまう」「決算期にまとめて処理」</span></div>
+      <div class="need-bg-icon">📅</div>
+    </div>
+    <div class="need-card stagger-3">
+      <div class="need-num">CHALLENGE 03 ／ 属人化・引き継ぎ</div>
+      <div class="need-ttl">経理が母 → 3名へ引き継ぎ途中</div>
+      <div class="need-body">以前はお母様が担当していた経理を、<strong>池田様・経理担当者・奥様の3名</strong>で引き継いでいる最中。だからこそ「誰でも同じように処理できる」形が重要になります。<br><span style="color:var(--muted); font-size:11px;">▼ 元の表現「母が担当していた業務を3名で引き継ぎ中」</span></div>
+      <div class="need-bg-icon">🔄</div>
+    </div>
+    <div class="need-card stagger-4">
+      <div class="need-num">CHALLENGE 04 ／ 設計業務</div>
+      <div class="need-ttl">設計・デザインに時間がかかる</div>
+      <div class="need-body">設計パースや完成イメージの作成に時間がかかっている。AIを使った<strong>設計支援</strong>で、デザイン・設計にかかる時間を短縮したい（将来的なテーマ）。<br><span style="color:var(--muted); font-size:11px;">▼ 元の表現「設計パース・完成イメージの作成」「設計時間を短縮したい」</span></div>
+      <div class="need-bg-icon">📐</div>
+    </div>
+    <div class="need-card stagger-5">
+      <div class="need-num">CHALLENGE 05 ／ 人手不足</div>
+      <div class="need-ttl">少人数のため、業務全体が逼迫</div>
+      <div class="need-body">人材が少ないため、経理だけでなく設計業務にも時間がかかっている。<strong>少ない人員でも効率よく業務を進められる</strong>状態にしたい。<br><span style="color:var(--muted); font-size:11px;">▼ 元の表現「人材が少ない」「少ない人員でも効率よく進めたい」</span></div>
+      <div class="need-bg-icon">🧑‍🔧</div>
+    </div>
+    <div class="need-card stagger-6">
+      <div class="need-num">CHALLENGE 06 ／ 社内展開</div>
+      <div class="need-ttl">AIの使い方・可能性がまだ分からない</div>
+      <div class="need-body">「AIをどう仕事に使えるか」がまだ見えていない。まず池田様がAIを理解し、その上で<strong>特定の1人に任せず、社内のみんなが運用できる</strong>状態をつくりたい。<br><span style="color:var(--muted); font-size:11px;">▼ 元の表現「AIの使い方が分からない」「社内で活用できる状態にしたい」</span></div>
+      <div class="need-bg-icon">🏢</div>
+    </div>
+  </div>
+
+  <!-- AI APPLICATION NEEDS -->
+  <div class="sec-head">
+    <div class="sec-label">AI Application Needs</div>
+    <div class="sec-title">AIで実現したいこと</div>
+    <div class="sec-divider"></div>
+    <div class="sec-sub">池田様が「AIで効率化したい」と挙げられていることです。研修・MTGの優先順位づけに使います。<strong>NEED 01〜02（経理）</strong>が今期の中心テーマです。</div>
+  </div>
+
+  <div class="needs-grid">
+    <div class="need-card">
+      <div class="need-num">NEED 01 ／ 最優先</div>
+      <div class="need-ttl">経理の仕分けの効率化</div>
+      <div class="need-body">数字・データを取り込み、<strong>仕分けをかんたんに整理できる</strong>状態を目指す。科目の判断や仕入先ごとの整理を、AIがサポートする形を検討します。</div>
+      <div class="need-bg-icon">🧮</div>
+    </div>
+    <div class="need-card">
+      <div class="need-num">NEED 02 ／ 最優先</div>
+      <div class="need-ttl">経理を「日常業務」として回す</div>
+      <div class="need-body">決算期にまとめるのではなく、<strong>毎月コンスタントに処理できる</strong>運用へ。今期はAI導入の準備期間とし、来期から経理担当者と一緒に運用できる状態を目指します。</div>
+      <div class="need-bg-icon">📅</div>
+    </div>
+    <div class="need-card">
+      <div class="need-num">NEED 03</div>
+      <div class="need-ttl">設計支援（パース・完成イメージ）</div>
+      <div class="need-body">設計パース・完成イメージの作成にAIを活用し、<strong>設計・デザインにかかる時間を短縮</strong>したい。将来的なフェーズで段階的に取り組みます。</div>
+      <div class="need-bg-icon">🏠</div>
+    </div>
+    <div class="need-card">
+      <div class="need-num">NEED 04</div>
+      <div class="need-ttl">人手不足の補完</div>
+      <div class="need-body">少ない人員でも業務を効率よく進められる仕組みづくり。経理・設計まわりの手間を減らし、<strong>本来やるべき仕事に集中できる</strong>状態へ。</div>
+      <div class="need-bg-icon">🧑‍🔧</div>
+    </div>
+    <div class="need-card">
+      <div class="need-num">NEED 05</div>
+      <div class="need-ttl">池田様ご自身のAI理解</div>
+      <div class="need-body">まずは池田様が「AIで何ができるか」を理解し、<strong>ご自身で使える</strong>ようになること。専門家から学び、これまで分からなかった可能性を知ることが出発点です。</div>
+      <div class="need-bg-icon">🧭</div>
+    </div>
+    <div class="need-card">
+      <div class="need-num">NEED 06</div>
+      <div class="need-ttl">社内全体での運用</div>
+      <div class="need-body">特定の担当者お一人だけに任せるのではなく、<strong>社内のみんながAIを運用できる</strong>状態をつくる。組織としての活用へ、段階的に広げていきます。</div>
+      <div class="need-bg-icon">🏢</div>
+    </div>
+  </div>
+
+  <!-- SECURITY / CONCERNS -->
+  <div class="sec-head">
+    <div class="sec-label">Security &amp; Concerns</div>
+    <div class="sec-title">運用にあたっての基本方針（セキュリティ）</div>
+    <div class="sec-divider"></div>
+    <div class="sec-sub">※ 以下は池田様から挙がった懸念点ではなく、<strong>経理データなど機密情報を扱う前提で、AIBLからお伝えする基本方針</strong>です。初級編でも改めてご説明します。</div>
+  </div>
+
+  <div class="callout">
+    🛡️ <strong>大前提：</strong> 生成AIはとても便利な一方で、<strong>使い方を誤ると情報漏洩につながる</strong>ことがあります。特に経理では<strong>決算・仕入先・金額</strong>といった大切な情報を扱うため、<strong>安全な使い方を最初に押さえてから</strong>進めるのが、結果的に安心かつ最短ルートになります。</div>
+
+  <div class="sec-grid">
+    <div class="sec-card">
+      <h4>🫥 機密情報はマスキングして扱う</h4>
+      <p>決算資料・仕入先情報・取引金額など、見られたくない情報は<span class="tip" data-tip="数字や固有名詞を伏せたり、架空の情報に置き換えたりして、本物の機密情報をAIに渡さないようにする処理">マスキング／ダミーデータ</span>に置き換えてから渡すのが基本です。社外秘・取引先の非公開情報はそのまま入力しないようにします。</p>
+    </div>
+    <div class="sec-card">
+      <h4>🔢 金額など「間違えてはいけない数字」は人が最終確認</h4>
+      <p>AIは考える作業が得意な一方、<strong>金額の入力・転記そのもの</strong>を丸ごと任せるのには向きません。仕分けの<strong>下ごしらえ・整理</strong>をAIに任せ、<strong>最終確認は必ず人が行う</strong>のが安全な使い方です。</p>
+    </div>
+    <div class="sec-card">
+      <h4>🔐 データの学習設定に注意</h4>
+      <p>ChatGPTには、やり取りを<span class="tip" data-tip="入力した内容が、AIの性能改善（学習）のために使われる場合があるという設定。オフにすると学習には使われません">学習に使う設定</span>があります。無料版でも設定で切り替えられます。機密情報を扱う場合は、この設定や<strong>有料版・法人向けプラン</strong>も含めて検討します（初級編でご案内）。</p>
+    </div>
+    <div class="sec-card">
+      <h4>👤 1人1アカウントで運用</h4>
+      <p>1つのアカウントを<strong>複数人で共有</strong>するのは、利用規約・プライバシー・<span class="tip" data-tip="不正利用と判断され、アカウントが一時的に使えなくなること">アカウント凍結</span>のリスクの面で非推奨。今後の社内展開を考えても、1人1アカウントが安全です。</p>
+    </div>
+    <div class="sec-card ok">
+      <h4>🆓 まずは無料版で「慣れる」</h4>
+      <p>今期はAI導入の準備期間。まずは無料版で使い方に慣れ、<strong>本格的に業務で使う段階</strong>で、機能やデータの扱いに応じて有料版・法人プランへの切り替えを検討する、という進め方が無理がありません。</p>
+    </div>
+    <div class="sec-card ok">
+      <h4>🧩 「特定の1人に依存しない」設計</h4>
+      <p>池田様のご希望どおり、<strong>社内のみんなが運用できる</strong>ことを前提に設計します。手順を分かりやすく残す・共有する仕組みを整えることで、引き継ぎや属人化の不安にも備えられます。</p>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- ═══ TAB 3: ChatGPTの基礎・プロンプト術 ═══ -->
+<!-- ═══════════════════════════════════════════════ -->
+<div id="tab3" class="tab-content" role="tabpanel" aria-labelledby="tab3-btn">
+<div class="page-body">
+
+  <div class="callout blue">
+    📘 <strong>このページは「初級編（9/18）で学ぶ内容の予習」です。</strong> AIの基本的な考え方と、成果が大きく変わる「プロンプト（指示文）」のコツをまとめました。研修当日は、最新の画面に沿って一緒に操作しながら進めます。</div>
+
+  <div class="sec-head">
+    <div class="sec-label">Understand ChatGPT</div>
+    <div class="sec-title">まずは「無料版」と「有料版」の違いを知る</div>
+    <div class="sec-divider"></div>
+    <div class="sec-sub">池田様が今お使いなのは<strong>無料版のChatGPT</strong>です。<span class="tip" data-tip="指示によって文章・画像などの新しいコンテンツを生み出すAIの技術分野。AIという大きなくくりの中の一分野です">生成AI</span>は、まず無料版で「何ができるか」を体験し、本格的に業務で使う段階で有料版・法人プランを検討する、という順番がおすすめです。</div>
+  </div>
+
+  <div class="use-grid">
+    <div class="use-card t1">
+      <span class="use-badge">現在ご利用中</span>
+      <h4>① 無料版ChatGPT</h4>
+      <ul>
+        <li>池田様が今お使いのプラン。<strong>チャットで会話</strong>しながら使います。</li>
+        <li>調べ物・文章作成・アイデア出し・要約など、<strong>日常の“考える作業”</strong>を幅広くサポート。</li>
+        <li>まずはここで「AIで何ができるか」に慣れるのが第一歩です。</li>
+      </ul>
+    </div>
+    <div class="use-card t2">
+      <span class="use-badge">業務活用の段階で検討</span>
+      <h4>② 有料版・法人向けプラン</h4>
+      <ul>
+        <li>使える機能が広がり、<span class="tip" data-tip="入力した内容がAIの学習に使われないよう管理された環境。会社単位でアカウントや権限も管理しやすい">データの扱いや権限管理</span>もしやすくなります。</li>
+        <li><strong>経理など機密情報を扱う</strong>本格運用の段階で、費用対効果を見ながら検討します。</li>
+        <li>いきなり契約せず、まず無料版で慣れてから、で問題ありません。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout teal">
+    ✅ <strong>進め方：</strong> 初級編で<strong>無料版ChatGPTの基本</strong>を体験 → 慣れてきたら、経理・設計など御社の実務への応用を、中級編・フォローアップMTGで深めていきます。</div>
+
+  <!-- MODE -->
+  <div class="sec-head">
+    <div class="sec-label">Mode</div>
+    <div class="sec-title">「サッと答える」と「じっくり考える」の使い分け</div>
+    <div class="sec-divider"></div>
+    <div class="sec-sub">AIには、すぐ答えるモードと、時間をかけてじっくり考えるモードがあります。作業の難しさに応じて使い分けるのがコツです（画面の呼び方はサービスの更新で変わることがあるため、当日の画面でご案内します）。</div>
+  </div>
+  <div class="model-fig">
+    <div class="model-card instant">
+      <div class="model-h"><span class="model-icon">⚡</span><div class="model-name">サッと答える<small>スピード重視</small></div></div>
+      <div class="model-stat"><span class="k">速さ</span><span class="v">速い</span></div>
+      <div class="model-stat"><span class="k">向いている作業</span><span class="v">簡単・即答系</span></div>
+      <div class="model-foot">調べ物・ちょっとした相談・メール作成など、すぐ答えが欲しいときに。日常の“ちょい使い”に向いています。</div>
+    </div>
+    <div class="model-card thinking">
+      <div class="model-h"><span class="model-icon">🧠</span><div class="model-name">じっくり考える<small>精度・品質重視</small></div></div>
+      <div class="model-stat"><span class="k">速さ</span><span class="v">じっくり</span></div>
+      <div class="model-stat"><span class="k">向いている作業</span><span class="v">難しい・作り込み系</span></div>
+      <div class="model-foot">複雑な整理・しっかりした成果物づくりに。経理の仕分けルールを一緒に整理する、といった作業はこちら向きです。</div>
+    </div>
+  </div>
+  <div class="callout blue">
+    💡 待ち時間が長いときも放置せず、<strong>別のタブでもう1つ開いて</strong>並行して作業できます。1つのやり取りが終わるのを待つ必要はありません。</div>
+
+  <!-- PROMPT 5 ELEMENTS -->
+  <div class="sec-head">
+    <div class="sec-label">Prompt Basics</div>
+    <div class="sec-title">プロンプトの「5つの要素」</div>
+    <div class="sec-divider"></div>
+    <div class="sec-sub"><span class="tip" data-tip="AIに作業させるために入力する“指示文”のこと。ChatGPTに打ち込む文章はすべてプロンプトです">プロンプト</span>＝AIへの指示文。具体的かどうかで<strong>回答の精度が大きく変わります</strong>。難しい作業ほど、次の5要素を入れると精度が上がります。</div>
+  </div>
+  <div class="p5-grid">
+    <div class="p5-card"><div class="p5-num">①</div><div class="p5-ttl">役割</div><div class="p5-en">Role</div><div class="p5-desc">誰として答えてほしいか。例：「あなたは経験豊富な経理担当です」</div></div>
+    <div class="p5-card"><div class="p5-num">②</div><div class="p5-ttl">依頼</div><div class="p5-en">Task</div><div class="p5-desc">何をしてほしいか。明確に。例：「この明細を科目ごとに整理して」</div></div>
+    <div class="p5-card"><div class="p5-num">③</div><div class="p5-ttl">目的</div><div class="p5-en">Purpose</div><div class="p5-desc">なぜ依頼したか。ゴールが伝わると回答が的確に。</div></div>
+    <div class="p5-card"><div class="p5-num">④</div><div class="p5-ttl">回答方法</div><div class="p5-en">Format</div><div class="p5-desc">どう答えてほしいか。例：「表で」「箇条書きで」</div></div>
+    <div class="p5-card"><div class="p5-num">⑤</div><div class="p5-ttl">条件</div><div class="p5-en">Rule</div><div class="p5-desc">守ってほしいルール。例：「専門用語は使わずに」</div></div>
+  </div>
+  <div class="callout">
+    📝 <strong>5要素は必須ではありません。</strong> 明日の天気を聞くだけなら②だけでもOK。<strong>難しい作業ほど5要素を入れる</strong>──こう考えると、プロンプト作成のハードルが上がりすぎません。新人さんに具体的に指示するイメージが近いです。</div>
+
+  <!-- 3 WAYS -->
+  <div class="sec-head">
+    <div class="sec-label">3 Approaches</div>
+    <div class="sec-title">指示のしかた「3つの型」</div>
+    <div class="sec-divider"></div>
+    <div class="sec-sub">プロンプトの作り方は1つではありません。慣れに応じて、次の3つを使い分けます。</div>
+  </div>
+  <div class="flow">
+    <div class="flow-node a">
+      <div class="flow-ic">💬</div>
+      <div class="flow-t">① 簡単なプロンプト</div>
+      <div class="flow-s">一言二言で指示し、往復しながら仕上げる。まずはこのやり方でOK。</div>
+    </div>
+    <div class="flow-arr">→</div>
+    <div class="flow-node b">
+      <div class="flow-ic">📋</div>
+      <div class="flow-t">② 具体的なプロンプト</div>
+      <div class="flow-s">5要素を入れて最初から作り込む。期待どおりになりやすい。</div>
+    </div>
+    <div class="flow-arr">→</div>
+    <div class="flow-node c">
+      <div class="flow-ic">🙋</div>
+      <div class="flow-t">③ ヒアリング型</div>
+      <div class="flow-s">「私に質問して」と頼み、AIの質問に答えるだけで成果物に。迷ったときに安心。</div>
+    </div>
+  </div>
+  <div class="callout teal">
+    🎯 <strong>応用のヒント：</strong> ①先に<strong>情報を学ばせる</strong>（会社の情報や、仕分けのルールを先に伝える → そのうえで作業させる）と、御社に寄り添った回答になります。②いきなり完成形を作らせず、<strong>先に「進め方・構成」を相談する</strong>と、やり直しが減ります。</div>
+
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- ═══ TAB 4: ロードマップ ═══ -->
+<!-- ═══════════════════════════════════════════════ -->
+<div id="tab4" class="tab-content" role="tabpanel" aria-labelledby="tab4-btn">
+<div class="page-body">
+
+  <div class="sec-head">
+    <div class="sec-label">Roadmap</div>
+    <div class="sec-title">研修・伴走のロードマップ</div>
+    <div class="sec-divider"></div>
+    <div class="sec-sub">初級編から始まり、中級編・フォローアップMTGへと続く、池田様の伴走計画です。各回の終了後、内容が「研修・MTG記録」タブに追記されていきます。<strong>まずは9/18の初級編がスタート地点</strong>です。</div>
+  </div>
+
+  <div class="tl-wrap">
+    <div class="tl-rail"></div>
+
+    <!-- 初級編 -->
+    <div class="tl-entry">
+      <div class="tl-pin p-train">初級</div>
+      <div class="tl-card t-train">
+        <div class="tl-card-top">
+          <div>
+            <div class="tl-date today">2026年9月18日（金）9:30〜13:00 ／ 次回</div>
+            <div class="tl-ttl">初級編：ChatGPTの機能理解（これから）</div>
+          </div>
+          <span class="tl-phase t-train">研修</span>
+        </div>
+        <div class="tl-body">「機能 → 考え方 → 活用方法」の順で、ChatGPTで“何ができるか”を体験します。基本操作・ファイル読み取り・情報収集・セキュリティ・プロンプトの作り方などを、池田様の実務（経理・設計）を想定しながら学びます。</div>
+        <div class="tl-tags">
+          <span class="tl-tag">基本操作</span><span class="tl-tag">ファイル読み取り</span><span class="tl-tag">情報収集</span><span class="tl-tag">セキュリティ</span><span class="tl-tag">プロンプト5要素</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 中級編 -->
+    <div class="tl-entry">
+      <div class="tl-pin p-train">中級</div>
+      <div class="tl-card t-train">
+        <div class="tl-card-top">
+          <div>
+            <div class="tl-date">日程未定</div>
+            <div class="tl-ttl">中級編：実務への応用（経理・設計）</div>
+          </div>
+          <span class="tl-phase t-train">研修</span>
+        </div>
+        <div class="tl-body">初級編で学んだ基本を、御社の実務へ落とし込みます。池田様の関心が高い<strong>経理の仕分けの効率化</strong>を中心に、設計支援なども段階的に扱っていきます。<br><span style="color:var(--muted); font-size:11px;">※ 日程が確定次第、こちらに反映します。</span></div>
+      </div>
+    </div>
+
+    <!-- FUP1 -->
+    <div class="tl-entry">
+      <div class="tl-pin p-fup">FUP1</div>
+      <div class="tl-card t-fup">
+        <div class="tl-card-top">
+          <div>
+            <div class="tl-date">日程未定</div>
+            <div class="tl-ttl">フォローアップMTG 1回目（予定）</div>
+          </div>
+          <span class="tl-phase">FUP</span>
+        </div>
+        <div class="tl-body">研修内容の実践進捗を確認し、つまずいた点を整理。次に取り組む優先順位を一緒に決めていきます。<br><span style="color:var(--muted); font-size:11px;">※ 日程が確定次第、こちらに反映します。</span></div>
+      </div>
+    </div>
+
+    <!-- FUP2 -->
+    <div class="tl-entry">
+      <div class="tl-pin p-fup">FUP2</div>
+      <div class="tl-card t-fup">
+        <div class="tl-card-top">
+          <div>
+            <div class="tl-date">日程未定</div>
+            <div class="tl-ttl">フォローアップMTG 2回目（予定）</div>
+          </div>
+          <span class="tl-phase">FUP</span>
+        </div>
+        <div class="tl-body">実務への落とし込み支援。経理の運用定着、設計支援、社内展開など、具体的な業務での活用を深掘りします。<br><span style="color:var(--muted); font-size:11px;">※ 日程が確定次第、こちらに反映します。</span></div>
+      </div>
+    </div>
+
+    <!-- 月次 -->
+    <div class="tl-entry">
+      <div class="tl-pin p-monthly">月1</div>
+      <div class="tl-card t-monthly">
+        <div class="tl-card-top">
+          <div>
+            <div class="tl-date">フォローアップ以降（継続伴走）</div>
+            <div class="tl-ttl">継続伴走フェーズ（今後ご相談）</div>
+          </div>
+          <span class="tl-phase t-monthly">継続</span>
+        </div>
+        <div class="tl-body">来期からの経理運用の定着、設計支援、最新AI情報の共有などを、継続的にサポートしていく想定です。進め方は研修の状況に合わせてご相談します。</div>
+      </div>
+    </div>
+
+    <!-- FUTURE -->
+    <div class="tl-entry">
+      <div class="tl-pin p-future">…</div>
+      <div class="tl-card t-future">
+        <div class="tl-card-top">
+          <div>
+            <div class="tl-date">これから</div>
+            <div class="tl-ttl">各セッション後に内容が追記されていきます</div>
+          </div>
+          <span class="tl-phase t-future">予定</span>
+        </div>
+        <div class="tl-body">「研修・MTG記録」タブに、各回の議事録サマリー・決定事項・宿題が随時追加されていきます。本サイトを復習用にお使いください。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SKILL LEVEL -->
+  <div class="sec-head">
+    <div class="sec-label">Skills</div>
+    <div class="sec-title">スタート地点（研修開始前の目安）</div>
+    <div class="sec-divider"></div>
+    <div class="sec-sub">事前ヒアリング時点の<strong>あくまで目安</strong>です（数値は自己申告ベースの推定）。研修・MTGを通じて、各バーが伸びていくのを記録していきます。「これから」が多いのは自然なこと──ここが伸びしろです。</div>
+  </div>
+  <div class="skill-legend">
+    <div class="legend-item"><div class="legend-dot" style="background:var(--teal)"></div>得意・習熟済み（70%〜）</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--blue)"></div>実用段階（40〜69%）</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--accent)"></div>習得中（20〜39%）</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#aab"></div>これから（〜19%）</div>
+  </div>
+
+  <div class="skill-section">
+    <div class="skill-sec-ttl">AI基礎・対話スキル</div>
+    <div class="skill-row"><div class="skill-lbl">ChatGPTの基本操作</div><div class="skill-bar-bg"><div class="skill-bar-fill fill-lo" data-width="25"></div></div><div class="skill-pct">25%</div></div>
+    <div class="skill-row"><div class="skill-lbl">調べ物での活用</div><div class="skill-bar-bg"><div class="skill-bar-fill fill-lo" data-width="30"></div></div><div class="skill-pct">30%</div></div>
+    <div class="skill-row"><div class="skill-lbl">プロンプト設計（5要素）</div><div class="skill-bar-bg"><div class="skill-bar-fill fill-xs" data-width="15"></div></div><div class="skill-pct">15%</div></div>
+    <div class="skill-row"><div class="skill-lbl">モード使い分け</div><div class="skill-bar-bg"><div class="skill-bar-fill fill-xs" data-width="10"></div></div><div class="skill-pct">10%</div></div>
+  </div>
+
+  <div class="skill-section">
+    <div class="skill-sec-ttl">実務での活用</div>
+    <div class="skill-row"><div class="skill-lbl">経理での活用（仕分け）</div><div class="skill-bar-bg"><div class="skill-bar-fill fill-xs" data-width="10"></div></div><div class="skill-pct">10%</div></div>
+    <div class="skill-row"><div class="skill-lbl">設計支援での活用</div><div class="skill-bar-bg"><div class="skill-bar-fill fill-xs" data-width="10"></div></div><div class="skill-pct">10%</div></div>
+    <div class="skill-row"><div class="skill-lbl">ファイルの読み取り活用</div><div class="skill-bar-bg"><div class="skill-bar-fill fill-xs" data-width="10"></div></div><div class="skill-pct">10%</div></div>
+    <div class="skill-row"><div class="skill-lbl">資料作成</div><div class="skill-bar-bg"><div class="skill-bar-fill fill-xs" data-width="15"></div></div><div class="skill-pct">15%</div></div>
+  </div>
+
+  <div class="skill-section">
+    <div class="skill-sec-ttl">応用・組織展開</div>
+    <div class="skill-row"><div class="skill-lbl">セキュリティ設定</div><div class="skill-bar-bg"><div class="skill-bar-fill fill-xs" data-width="10"></div></div><div class="skill-pct">10%</div></div>
+    <div class="skill-row"><div class="skill-lbl">社内展開・運用の仕組み化</div><div class="skill-bar-bg"><div class="skill-bar-fill fill-xs" data-width="5"></div></div><div class="skill-pct">5%</div></div>
+  </div>
+
+  <!-- BEFORE / AFTER -->
+  <div class="fancy-sep"><span>これからの変化の軌跡</span></div>
+  <div class="matrix-wrap">
+    <div class="matrix-head"><span>研修開始前（2026年9月）</span><span>→</span><span>目標とする状態（ゴール）</span></div>
+    <div class="matrix-row"><div class="mx-from">経理の仕分けに毎月時間がかかる</div><div class="mx-arr">→</div><div class="mx-to">仕分けを効率化し、負担を減らせる</div></div>
+    <div class="matrix-row"><div class="mx-from">経理を決算期にまとめて処理</div><div class="mx-arr">→</div><div class="mx-to">月次で“日常業務”として処理できる</div></div>
+    <div class="matrix-row"><div class="mx-from">経理が母→3名で引き継ぎ・属人的</div><div class="mx-arr">→</div><div class="mx-to">誰でも同じように運用できる仕組みに</div></div>
+    <div class="matrix-row"><div class="mx-from">設計パース・イメージ作成に時間</div><div class="mx-arr">→</div><div class="mx-to">設計支援で時間を短縮できる</div></div>
+    <div class="matrix-row"><div class="mx-from">AIをどう使えるか分からない</div><div class="mx-arr">→</div><div class="mx-to">池田様ご自身がAIを理解し使える</div></div>
+    <div class="matrix-row"><div class="mx-from">特定の担当者に依存しがち</div><div class="mx-arr">→</div><div class="mx-to">社内全体でAIを活用できる状態</div></div>
+  </div>
+  <div style="font-size:11px; color:var(--muted); margin-top:8px; padding-left:2px;">※ 右列は池田様が挙げられた「目標」です。達成状況は研修・MTGの進行に合わせて更新していきます。</div>
+
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- ═══ TAB 5: 研修・MTG記録 ═══ -->
+<!-- ═══════════════════════════════════════════════ -->
+<div id="tab5" class="tab-content" role="tabpanel" aria-labelledby="tab5-btn">
+<div class="page-body">
+
+  <div class="sec-head">
+    <div class="sec-label">Records &amp; Logs</div>
+    <div class="sec-title">研修・MTG 議事録</div>
+    <div class="sec-divider"></div>
+    <div class="sec-sub">これから始まる研修・MTGの記録が、ここに<strong>継続的に蓄積</strong>されていきます。<strong>初級編（9/18）</strong>以降、各回の議事録サマリー・決定事項・宿題を順次追加していきます。各項目はクリックで開閉できます。</div>
+  </div>
+
+  <!-- FILTER BAR -->
+  <div class="filter-bar" role="search" aria-label="記録のフィルター">
+    <div class="filter-bar-top">
+      <div class="filter-search">
+        <input type="text" id="searchInput" placeholder="キーワード検索（例：初級編、経理、セキュリティ…）" oninput="applyFilters()" aria-label="記録内容を検索">
+        <button class="filter-clear" id="filterClear" onclick="clearSearch()" aria-label="検索をクリア">✕</button>
+      </div>
+      <div class="filter-stats" aria-live="polite"><strong id="filterCount">0</strong>件 表示中 ／ <span id="filterTotal">0</span>件中</div>
+    </div>
+    <div class="filter-chips" role="group" aria-label="種別フィルター">
+      <span class="filter-label">種別：</span>
+      <button class="chip active" data-filter="all" onclick="setFilter(this)" aria-pressed="true">すべて <span class="chip-count" data-chip-count="all">0</span></button>
+      <button class="chip" data-filter="training" onclick="setFilter(this)" aria-pressed="false">🎓 研修 <span class="chip-count" data-chip-count="training">0</span></button>
+      <button class="chip" data-filter="fup" onclick="setFilter(this)" aria-pressed="false">💬 FUP <span class="chip-count" data-chip-count="fup">0</span></button>
+      <button class="chip" data-filter="monthly" onclick="setFilter(this)" aria-pressed="false">📅 継続MTG <span class="chip-count" data-chip-count="monthly">0</span></button>
+      <button class="chip" data-filter="pending" onclick="setFilter(this)" aria-pressed="false">⏳ 未記録 <span class="chip-count" data-chip-count="pending">0</span></button>
+    </div>
+  </div>
+
+  <!-- SUBSECTION: 今後 -->
+  <div class="subsection" data-section="upcoming">
+    <h3 class="subsec-head">
+      <span class="subsec-icon" aria-hidden="true">⏳</span>
+      <span>今後の記録（初級編スタート・順次追加）</span>
+      <span class="subsec-count" data-subsec-count="upcoming"></span>
+    </h3>
+
+    <div class="callout teal">
+      ✅ <strong>まずは初級編（9/18）から。</strong> 「機能 → 考え方 → 活用方法」の順で進みます。研修・MTGが終わるたびに、この場所へ内容が追加されていきます。本サイトを<strong>復習・共有用</strong>にお使いください。</div>
+
+    <div class="empty-state filterable" data-filter-type="training pending" style="border-color:var(--blue);">
+      <div class="empty-icon" aria-hidden="true">🎓</div>
+      <div class="empty-ttl">初級編（2026年9月18日 金）終了後にここへ記録が追加されます</div>
+      <div class="empty-desc">ChatGPTの機能理解 ／ 基本操作・ファイル読み取り・情報収集・セキュリティ・プロンプトの作り方</div>
+    </div>
+    <div class="empty-state filterable" data-filter-type="training pending" style="border-color:var(--blue);">
+      <div class="empty-icon" aria-hidden="true">🎓</div>
+      <div class="empty-ttl">中級編（日程未定）以降の記録</div>
+      <div class="empty-desc">実務への応用 ／ 経理の仕分けの効率化・設計支援</div>
+    </div>
+    <div class="empty-state filterable" data-filter-type="fup pending" style="border-color:var(--accent);">
+      <div class="empty-icon" aria-hidden="true">💬</div>
+      <div class="empty-ttl">フォローアップMTG 1回目（日程未定）以降の記録</div>
+      <div class="empty-desc">実践進捗の確認・つまずき整理・次の優先順位</div>
+    </div>
+    <div class="empty-state filterable" data-filter-type="fup pending" style="border-color:var(--accent);">
+      <div class="empty-icon" aria-hidden="true">💬</div>
+      <div class="empty-ttl">フォローアップMTG 2回目（日程未定）以降の記録</div>
+      <div class="empty-desc">経理運用の定着・設計支援・社内展開への落とし込み支援</div>
+    </div>
+    <div class="empty-state filterable" data-filter-type="monthly pending" style="border-color:var(--warm);">
+      <div class="empty-icon" aria-hidden="true">📅</div>
+      <div class="empty-ttl">継続伴走フェーズ（フォローアップ以降）の記録</div>
+      <div class="empty-desc">来期からの経理運用定着・最新AI情報の共有などを継続サポート</div>
+    </div>
+  </div>
+
+  <!-- NO RESULTS -->
+  <div class="filter-empty" id="filterEmpty" role="status">
+    <div class="filter-empty-icon" aria-hidden="true">🔍</div>
+    <div class="filter-empty-ttl">該当する記録が見つかりません</div>
+    <div class="filter-empty-desc">検索キーワードまたは種別フィルターを変更してください</div>
+    <button class="filter-empty-reset" onclick="resetFilters()">フィルターをリセット</button>
+  </div>
+
+</div>
+</div>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer class="site-footer">
+  <div style="max-width:1000px; margin:0 auto;">
+    <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-start; gap:24px; padding-bottom:20px; border-bottom:1px solid rgba(255,255,255,0.1); margin-bottom:18px; text-align:left;">
+      <div>
+        <div style="font-family:'Montserrat',sans-serif; font-size:11px; font-weight:800; letter-spacing:0.15em; color:white; margin-bottom:4px;">AI BUSINESS LABO</div>
+        <div style="font-size:10px; opacity:0.7;">株式会社Grateful Agent Corporation</div>
+      </div>
+      <div>
+        <div style="font-size:10px; color:rgba(255,255,255,0.5); letter-spacing:0.1em; margin-bottom:4px;">CLIENT</div>
+        <div style="font-size:12px; color:white;">池田 禎治 様 ／ 東邦家具株式会社</div>
+      </div>
+      <div>
+        <div style="font-size:10px; color:rgba(255,255,255,0.5); letter-spacing:0.1em; margin-bottom:4px;">FACILITATOR</div>
+        <div style="font-size:12px; color:white;">AIBL 専任講師</div>
+      </div>
+      <div>
+        <div style="font-size:10px; color:rgba(255,255,255,0.5); letter-spacing:0.1em; margin-bottom:4px;">LAST UPDATED</div>
+        <div style="font-size:12px; color:white;">2026.09.17</div>
+      </div>
+    </div>
+    <div style="text-align:center;">
+      本ページは池田 禎治様専用のAI伴走記録です。2026年9月18日（金）の初級編を出発点に、研修・MTG後の内容が順次追加・更新されていきます。復習・社内共有用としてご活用ください。
+    </div>
+  </div>
+</footer>
+<!-- ═══════════ JAVASCRIPT ═══════════ -->
+<script>
+function switchTab(tabId, btn) {
+  const hero = document.querySelector('.hero');
+  const targetY = hero ? hero.offsetHeight : 0;
+  window.scrollTo(0, targetY);
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); b.setAttribute('tabindex','-1'); });
+  document.getElementById(tabId).classList.add('active');
+  btn.classList.add('active'); btn.setAttribute('aria-selected','true'); btn.setAttribute('tabindex','0');
+  void document.getElementById(tabId).offsetHeight;
+  window.scrollTo(0, targetY);
+  animateSkillBars(); animateCounters();
+}
+document.addEventListener('keydown', (e) => {
+  if (!e.target.classList.contains('tab-btn')) return;
+  const tabs = Array.from(document.querySelectorAll('.tab-btn'));
+  const idx = tabs.indexOf(e.target); let next = idx;
+  if (e.key === 'ArrowRight') next = (idx + 1) % tabs.length;
+  else if (e.key === 'ArrowLeft') next = (idx - 1 + tabs.length) % tabs.length;
+  else if (e.key === 'Home') next = 0;
+  else if (e.key === 'End') next = tabs.length - 1;
+  else return;
+  e.preventDefault(); tabs[next].click(); tabs[next].focus();
+});
+function toggleAcc(el, evt) {
+  const target = evt ? evt.target : (window.event ? window.event.target : null);
+  if (target && (target.closest('a') || target.closest('button'))) return;
+  el.classList.toggle('open');
+  const head = el.querySelector('.acc-head');
+  if (head) head.setAttribute('aria-expanded', el.classList.contains('open'));
+}
+function animateSkillBars() {
+  const activeTab = document.querySelector('.tab-content.active'); if (!activeTab) return;
+  activeTab.querySelectorAll('.skill-bar-fill').forEach(bar => {
+    const w = bar.getAttribute('data-width'); bar.style.width = '0';
+    setTimeout(() => { bar.style.width = w + '%'; }, 200);
+  });
+}
+function animateCounters() {
+  const activeTab = document.querySelector('.tab-content.active'); if (!activeTab) return;
+  activeTab.querySelectorAll('.counter').forEach(counter => {
+    const target = parseInt(counter.getAttribute('data-target'));
+    let current = 0; const step = Math.max(1, Math.ceil(target / 30));
+    counter.textContent = '0';
+    const update = () => {
+      current += step;
+      if (current >= target) { counter.textContent = target; }
+      else { counter.textContent = current; requestAnimationFrame(update); }
+    };
+    setTimeout(update, 200);
+  });
+}
+window.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.accordion.open .acc-head').forEach(head => head.setAttribute('aria-expanded','true'));
+  document.querySelectorAll('.tab-btn').forEach((btn, i) => btn.setAttribute('tabindex', i === 0 ? '0' : '-1'));
+  document.querySelectorAll('.acc-head').forEach(head => {
+    head.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleAcc(head.closest('.accordion'), e); }
+    });
+  });
+  initFilters(); animateSkillBars(); animateCounters();
+});
+
+// ═══ フィルター機能 ═══
+let currentFilter = 'all';
+function initFilters() {
+  const items = document.querySelectorAll('.filterable');
+  const counts = { all: items.length, training: 0, fup: 0, monthly: 0, pending: 0 };
+  items.forEach(item => {
+    const types = (item.dataset.filterType || '').split(' ');
+    types.forEach(t => { if (counts[t] !== undefined) counts[t]++; });
+  });
+  Object.keys(counts).forEach(key => {
+    const elm = document.querySelector(`[data-chip-count="${key}"]`);
+    if (elm) elm.textContent = counts[key];
+  });
+  document.getElementById('filterTotal').textContent = items.length;
+  applyFilters();
+}
+function setFilter(btn) {
+  document.querySelectorAll('.chip').forEach(c => { c.classList.remove('active'); c.setAttribute('aria-pressed','false'); });
+  btn.classList.add('active'); btn.setAttribute('aria-pressed','true');
+  currentFilter = btn.dataset.filter; applyFilters();
+}
+function applyFilters() {
+  const searchEl = document.getElementById('searchInput');
+  const search = searchEl ? searchEl.value.toLowerCase().trim() : '';
+  const clearBtn = document.getElementById('filterClear');
+  if (clearBtn) clearBtn.classList.toggle('show', search.length > 0);
+  const items = document.querySelectorAll('.filterable');
+  let visibleCount = 0; const sectionCounts = {};
+  items.forEach(item => {
+    const types = (item.dataset.filterType || '').split(' ');
+    const text = item.textContent.toLowerCase();
+    const matchType = currentFilter === 'all' || types.includes(currentFilter);
+    const matchSearch = !search || text.includes(search);
+    const visible = matchType && matchSearch;
+    item.style.display = visible ? '' : 'none';
+    if (visible) {
+      visibleCount++;
+      const section = item.closest('.subsection');
+      if (section) { const key = section.dataset.section; sectionCounts[key] = (sectionCounts[key] || 0) + 1; }
+    }
+  });
+  document.querySelectorAll('.subsection').forEach(sec => {
+    const key = sec.dataset.section; const cnt = sectionCounts[key] || 0;
+    sec.style.display = cnt === 0 ? 'none' : '';
+    const cntElm = sec.querySelector(`[data-subsec-count="${key}"]`);
+    if (cntElm) cntElm.textContent = `${cnt}件`;
+  });
+  document.getElementById('filterCount').textContent = visibleCount;
+  document.getElementById('filterEmpty').classList.toggle('show', visibleCount === 0);
+}
+function clearSearch() {
+  const input = document.getElementById('searchInput');
+  if (input) { input.value = ''; input.focus(); applyFilters(); }
+}
+function resetFilters() {
+  const input = document.getElementById('searchInput'); if (input) input.value = '';
+  const allChip = document.querySelector('.chip[data-filter="all"]'); if (allChip) setFilter(allChip);
+}
+
+// ═══ PDF出力 ═══
+function exportPDF() {
+  const beforeStates = [];
+  // すべてのアコーディオンを開く
+  document.querySelectorAll('.accordion').forEach(acc => { beforeStates.push({ el: acc, wasOpen: acc.classList.contains('open') }); acc.classList.add('open'); });
+  // 全タブのスキルバーを確定幅で表示（未訪問タブが空棒で印刷されるのを防ぐ）
+  document.querySelectorAll('.skill-bar-fill').forEach(bar => {
+    const w = bar.getAttribute('data-width'); if (w) bar.style.width = w + '%';
+  });
+  // 全カウンターを最終値で確定（"0"のまま印刷されるのを防ぐ）
+  document.querySelectorAll('.counter').forEach(c => {
+    const t = c.getAttribute('data-target'); if (t) c.textContent = t;
+  });
+  setTimeout(() => {
+    window.print();
+    setTimeout(() => { beforeStates.forEach(s => { if (!s.wasOpen) s.el.classList.remove('open'); }); }, 500);
+  }, 100);
+}
+</script>
+
+</body>
+</html>
